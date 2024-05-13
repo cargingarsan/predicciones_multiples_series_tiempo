@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-```{r lectura}
+```{r lectura, include = FALSE}
 library(openxlsx)
 library(dplyr)
 dataset <-
@@ -28,7 +28,7 @@ library(fable) #multiples series de tiempo
 library(lubridate)
 ```
 
-```{r}
+```{r, include = FALSE}
 dd <- dataset %>% 
 dplyr::mutate(fecha_corte=tsibble::yearmonth(fecha_corte)) %>% as_tsibble(index = "fecha_corte") %>% 
 reshape2::melt("fecha_corte") %>%
@@ -59,7 +59,7 @@ library(fable) #multiples series de tiempo
 library(lubridate)
 ```
 
-```{r}
+```{r, include = FALSE}
 
 dd <- dataset %>% 
 dplyr::mutate(fecha_corte=tsibble::yearmonth(fecha_corte)) %>% 
@@ -68,7 +68,7 @@ reshape2::melt("fecha_corte") %>%
 as_tsibble(index= "fecha_corte", key = "variable")
 ```
 
-```{r modelo2}
+```{r modelo2, include = TRUE}
 
 
 modelo2 <- dd %>% 
@@ -84,7 +84,7 @@ f1 %>%
 
 #---minemos un poco el modelo #--------
 
-```{r report}
+```{r report, include = TRUE}
 report(modelo) 
 modelo
 #si quiero llamar un solo modelo
