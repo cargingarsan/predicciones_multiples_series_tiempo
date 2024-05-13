@@ -4,7 +4,7 @@ library(dplyr)
 
 
 
-dataset <- read.xlsx("~/Github_proyectos/predicciones_multiples_series_tiempo/data/rec.xlsx", sheet = "Hoja2",detectDates = T)
+dataset <- read.xlsx("~/repositorios_programas/Github_proyectos/predicciones_multiples_series_tiempo/data/rec.xlsx", sheet = "Hoja2",detectDates = T)
 
 dataset <- dataset %>% select(c(fecha_corte, dep.vista, col.cart, exportaciones, mucif_duraderos))
 
