@@ -1,5 +1,7 @@
 ---
-title: "multiples series" format: html editor: visual
+title: "multiples series" 
+format: html 
+editor: visual
 ---
 
 ```{r lectura, include = FALSE}
@@ -8,10 +10,11 @@ library(dplyr)
 dataset <-
 read.xlsx("~/repositorios_programas/Github_proyectos/predicciones_multiples_series_tiempo/data/rec.xlsx",
 sheet = "Hoja2",detectDates = T)
-dataset <- dataset %>% select(c(fecha_corte, dep.vista, col.cart,
-exportaciones, mucif_duraderos))
+dataset <- dataset %>% select(c(fecha_corte, dep.vista, col.cart, exportaciones, mucif_duraderos))
 ```
+
 #----codigo que va en power bi ----
+
 ```{r}
 library(tsibble)
 library(feasts)
@@ -23,7 +26,6 @@ library(reshape2)
 library(fable) #multiples series de tiempo
 library(lubridate)
 ```
-
 
 ```{r, include = FALSE}
 dd <- dataset %>%
@@ -38,19 +40,21 @@ f1 <- modelo %>%
 f1
 ```
 
+```{r autoplot1}
+# label: evolución de los montos 
+# fig-width: 10
+# fig-asp.1.5
+# fig-alt: |
+# ![](indicadores.png){fig-alt="Variación porcentual interanual (año a año) de los diferentes indicadores."} 
 
-```{r tables, include = FALSE}
-gt
-```
 
-```{r}
+
 f1 %>%
   autoplot(dd, level = 95, alpha=0.5) + ggthemes::theme_pander()
 ```
 
-
-```
 #----codigo que va en power bi ----
+
 ```{r}
 library(tsibble)
 library(feasts)
@@ -62,6 +66,7 @@ library(reshape2)
 library(fable) #multiples series de tiempo
 library(lubridate)
 ```
+
 ```{r, include = FALSE}
 dd <- dataset %>%
 dplyr::mutate(fecha_corte=tsibble::yearmonth(fecha_corte)) %>%
@@ -69,6 +74,7 @@ as_tsibble(index = "fecha_corte") %>%
 reshape2::melt("fecha_corte") %>%
 as_tsibble(index= "fecha_corte", key = "variable")
 ```
+
 ```{r modelo2, include = TRUE}
 modelo2 <- dd %>%
   model( arima = ARIMA(value),
@@ -80,7 +86,9 @@ f1 %>%
   autoplot(dd, level = 95, alpha = 0.5) +
   ggthemes::theme_pander()
 ```
+
 #---minemos un poco el modelo #--------
+
 ```{r report, include = TRUE}
 report(modelo)
 modelo
@@ -93,10 +101,8 @@ report()
 0.8635/0.1203 # [1\] 7.177889 mayor que 2, es estadisticamente significativo
 0.0015/0.0007 #[1\] 2.142857 igual, mayor que 2
 ```
+
 ```{r accuracy}
 accuracy(modelo)
 accuracy(modelo2)
-```
-```{r}
-
 ```
