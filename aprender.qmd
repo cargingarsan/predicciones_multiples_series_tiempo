@@ -1,0 +1,283 @@
+---
+title: "aprender quarto"
+format:
+  html:
+    default-image-extension: svg
+  pdf:
+    default-image-extension: tex
+editor: visual
+fig-cap-location: top
+---
+
+## Quarto
+
+*Quarto* enables you to diferents files and others **weave together** content and ***executable code*** into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+superscript^2^ / subscript~2~
+
+~~strikethrough~~
+
+`verbatim code`
+
+# encabezado 1
+
+## encabezado 2
+
+### encabezado 3
+
+#### encabezado 4
+
+##### encabezado 5
+
+###### encabezado 6
+
+
+<https://quarto.org>
+
+[Quarto](https://quarto.org)
+
+![Caption](graficos/elephant.png)
+
+[![Caption](graficos/elephant.png "An elephant")](https://quarto.org)
+
+
+[![](graficos/elephant.png){fig-alt="Alt text"}](https://quarto.org)
+
+* unordered list
+    + sub-item 1
+    + sub-item 2
+        - sub-sub-item 1
+
+*   item 2
+
+    Continued (indent 4 spaces)
+
+
+1. ordered list
+2. item 2
+    i) sub-item 1
+         A.  sub-sub-item 1
+
+
+(@)  A list whose numbering
+
+continues after
+
+(@)  an interruption
+
+
+
+
+::: {}
+1. A list
+:::
+
+::: {}
+1. Followed by another list
+:::
+
+
+term
+: definition
+
+
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+
+```{r}
+
+```
+
+
+```
+code
+```
+
+```python
+1 + 1
+```
+
+```{.python}
+1 + 1
+```
+
+
+```{.python filename="run.py"}
+code
+```
+
+
+```{=html}
+<iframe src="https://quarto.org/" width="500" height="400"></iframe>
+```
+
+
+```{=latex}
+\renewcommand*{\labelitemi}{\textgreater}
+```
+
+
+```{=typst} 
+#set text(fill: red)
+This text is red.
+```
+
+
+
+inline math: $E = mc^{2}$
+
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+{{< video https://www.youtube.com/embed/wo9vZccmqwc >}}
+
+
+page 1
+
+{{< pagebreak >}}
+
+page 2
+
+
+::: {.border}
+This content can be styled with a border
+:::
+
+
+
+::::: {#special .sidebar}
+
+::: {.warning}
+Here is a warning.
+:::
+
+More content.
+:::::
+
+
+[This is *some text*]{.class key="val"}
+
+
+[This is good]{#id .class key1="val1" key2="val2"}
+
+
+[This does *not* work!]{.class key="val" #id}
+
+
+Blockquote
+
+::: {.classname}
+Div
+:::
+
+
+| Line Block
+|   Spaces and newlines
+|   are preserved
+
+
+To print, press {{< kbd Shift-Ctrl-P >}}. To open an existing new project, press {{< kbd mac=Shift-Command-O win=Shift-Control-O linux=Shift-Ctrl-L >}}.
+
+endash: --
+
+emdash: ---
+
+
+############# cifras
+
+![Elephant](graficos/elephant.png)
+
+![Elephant](graficos/elephant.png){width=300}
+
+
+![Elephant](graficos/elephant.png){width=80%}
+![Elephant](graficos/elephant.png){width=40mm}
+
+[![Elephant](graficos/elephant.png)](https://en.wikipedia.org/wiki/Elephant)
+
+
+
+![Elephant](graficos/elephant.png){fig-align="left"}
+
+![](graficos/elephant.png){fig-alt="A drawing of an elephant."}
+
+![Elephant](graficos/elephant.png "Title: An elephant"){fig-alt="A drawing of an elephant."}
+![A drawing of an elephant.](graficos/elephant.png)\
+
+
+![](elephant)
+
+
+![An elephant](graficos/elephant.png){.lightbox}
+
+![](graficos/elephant.png){fig-alt="A drawing of an elephant." fig-align="left" width=20% .lightbox}
+
+
+![An Elephant](graficos/elephant.png){#fig-elephant}
+
+This is illustrated well by @fig-elephant.
+
+
+
+For a demonstration of a line plot, see @fig-line-plot.
+
+
+
+::: {#fig-elephants layout-ncol=2}
+
+![Surus](graficos/surus.jpg){#fig-surus}
+
+![Hanno](graficos/hanno.jpg){#fig-hanno width=75%}
+
+Famous Elephants
+:::
+
+
+## Paneles de figuras
+
+::: {layout-ncol=2}
+![Surus](graficos/Surus.jpg)
+
+![Hanno](graficos/Hanno.jpg){width=75%}
+:::
+
+
+
+
+::: {layout-ncol=2}
+![Surus](graficos/Surus.jpg)
+
+![Hanno](graficos/Hanno.jpg){width=75%}
+
+![Lin Wang](graficos/Lin Wang.jpg)
+
+![Jumbo](graficos/Jumbo.jpg){width=70%}
+
+:::
+
+
+::: {#fig-elephant}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SNggmeilXDQ"></iframe>
+
+Elephant
+:::
+
+
+
+
+
+
+
+
+
+
+
