@@ -95,5 +95,5 @@ accuracy(modelo)
 
 accuracy(modelo2)
 
-??kable
+
 
