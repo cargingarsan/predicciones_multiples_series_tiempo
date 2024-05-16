@@ -6,7 +6,6 @@ format:
   pdf:
     default-image-extension: tex
 editor: visual
-fig-cap-location: top
 ---
 
 ## Quarto
@@ -272,10 +271,95 @@ Elephant
 :::
 
 
+::: {layout="[[1,1], [1]]"}
+![Surus](graficos/Surus.jpg)
+
+![Hanno](graficos/Hanno.jpg){width=75%}
+
+![Lin Wang](graficos/Lin Wang.jpg)
+:::
 
 
+::: {layout="[[40,-20,40], [100]]"}
+
+![Surus](graficos/Surus.jpg)
+
+![Hanno](graficos/Hanno.jpg)
+
+![Lin Wang](graficos/Lin Wang.jpg)
+
+:::
 
 
+::: {layout="[15,-2,10]" layout-valign="bottom"}
+![Surus](graficos/Surus.jpg)
+
+![Lin Wang](graficos/Lin Wang.jpg)
+:::
+
+
+```{r}
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Speed and Stopping Distances of Cars"
+#|   - "Vapor Pressure of Mercury as a Function of Temperature"
+
+plot(cars)
+plot(pressure)
+```
+
+
+```{r}
+#| label: fig-charts
+#| fig-cap: "Charts"
+#| fig-subcap: 
+#|   - "Cars"
+#|   - "Pressure"
+#| layout-ncol: 2
+
+plot(cars)
+plot(pressure)
+```
+
+
+```{r}
+#| layout: [[45,-10, 45], [100]]
+
+plot(cars)
+plot(pressure)
+plot(mtcars)
+```
+
+::: {layout-ncol=2}
+### List One
+
+- Item A
+- Item B
+- Item C
+
+### List Two
+
+- Item X
+- Item Y
+- Item Z
+:::
+
+
+:::: {layout="[ 40, 60 ]"}
+
+::: {#first-column}
+```r
+# Some code
+```
+
+Some text that should be laid out below the code
+:::
+
+::: {#second-column}
+![](graficos/elephant.png){width=55%}
+:::
+
+::::
 
 
 
