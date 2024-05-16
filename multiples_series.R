@@ -94,3 +94,5 @@ modelo %>%
 accuracy(modelo)
 
 accuracy(modelo2)
+
+
